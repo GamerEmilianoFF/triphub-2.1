@@ -1,0 +1,207 @@
+_G.Main = {}
+
+function _G.Main:New(Title)
+
+		local theme = Instance.new("ScreenGui")
+
+	local x = Instance.new("TextButton")
+
+	local Frame = Instance.new("Frame")
+
+	local Frame_2 = Instance.new("Frame")
+
+	local UIListLayout = Instance.new("UIListLayout")
+
+	local TextLabel = Instance.new("TextLabel")
+
+	theme.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+	theme.ResetOnSpawn = false
+
+	Frame.Parent = theme
+
+	Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+
+	Frame.Position = UDim2.new(0.3, 0, 0.1, 0)
+
+	Frame.Size = UDim2.new(0, 397, 0, 395)
+
+	Frame_2.Parent = Frame
+
+	Frame_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+
+	Frame_2.BorderSizePixel = 0
+
+	Frame_2.Position = UDim2.new(0.0624024495, 0, 0.145615742, 0)
+
+	Frame_2.Size = UDim2.new(0, 347, 0, 298)
+
+x.Parent = Frame
+
+x.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+
+x.Position = UDim2.new(0.8, 0, 0.0011, 0)
+
+x.Size = UDim2.new(0, 79, 0 , 56)
+
+x.Font = Enum.Font.Cartoon
+
+x.Text = "X"
+
+x.TextColor3 = Color3.fromRGB(255, 255 , 255)
+
+x.TextSize = 25.000
+
+x.MouseButton1Down:connect(function()
+
+game.Players.LocalPlayer.PlayerGui.ScreenGui:destroy()
+
+end)
+
+	UIListLayout.Parent = Frame_2
+
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+	UIListLayout.Padding = UDim.new(0, 10)
+
+	TextLabel.Parent = Frame
+
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+	TextLabel.BackgroundTransparency = 1.000
+
+	TextLabel.LayoutOrder = 5
+
+	TextLabel.Position = UDim2.new(0.152442604, 0, 0.0205405708, 0)
+
+	TextLabel.Size = UDim2.new(0, 274, 0, 40)
+
+	TextLabel.ZIndex = 2
+
+	TextLabel.Font = Enum.Font.GothamBold
+
+	TextLabel.Text = Title
+
+	TextLabel.TextColor3 = Color3.fromRGB(232, 232, 232)
+
+	TextLabel.TextScaled = true
+
+	TextLabel.TextSize = 14.000
+
+	TextLabel.TextWrapped = true
+
+	local function MVMBOL_fake_script()
+
+		local script = Instance.new('LocalScript', Frame)
+
+		script.Parent.Active = true
+
+		script.Parent.Draggable = true
+
+	end
+
+	coroutine.wrap(MVMBOL_fake_script)()
+
+	
+
+	_G.Frame = {}
+
+	
+
+	function _G.Frame:Button(Name,Call)
+
+		
+
+		local TextButton = Instance.new("TextButton")
+
+		
+
+		TextButton.Parent = Frame_2
+
+		TextButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+
+		TextButton.BorderSizePixel = 0
+
+		TextButton.Size = UDim2.new(0, 200, 0, 50)
+
+		TextButton.Font = Enum.Font.SourceSansBold
+
+		TextButton.Text = Name
+
+		TextButton.TextColor3 = Color3.fromRGB(235, 235, 235)
+
+		TextButton.TextScaled = true
+
+		TextButton.TextSize = 14.000
+
+		TextButton.TextWrapped = true
+
+		
+
+		TextButton.MouseButton1Click:Connect(function()
+
+			
+
+			pcall(Call)
+
+			
+
+		end)
+
+		
+
+	end
+
+	
+
+	return _G.Frame
+
+	
+
+end
+
+--Script Here
+
+local Frame1 = _G.Main:New("theme for trip hub")
+
+Frame1:Button("Serpent",function()
+
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/triphub2/main/Serpent",true))()
+
+end)
+
+Frame1:Button("Sentinel",function()
+
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/triphub3/main/Sentinel",true))()
+
+end)
+
+Frame1:Button("BloodTheme",function()
+
+    
+
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/triphub1/main/BloodTheme",true))()
+
+end)
+
+Frame1:Button("Ocean",function()
+
+    
+
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/triphub/main/Ocean",true))()
+
+end)
+
+Frame1:Button("GrapeTheme",function()
+
+    
+
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/triphub4/main/GrapeTheme",true))()
+
+    end)
+
+--End
+
+return _G.Main
