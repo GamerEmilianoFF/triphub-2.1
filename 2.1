@@ -1,8 +1,9 @@
+
 _G.Main = {}
 
 function _G.Main:New(Title)
 
-		local theme = Instance.new("ScreenGui")
+    local theme = Instance.new("ScreenGui")
 
 	local x = Instance.new("TextButton")
 
@@ -14,27 +15,6 @@ function _G.Main:New(Title)
 
 	local TextLabel = Instance.new("TextLabel")
 
-	theme.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-	theme.ResetOnSpawn = false
-
-	Frame.Parent = theme
-
-	Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-
-	Frame.Position = UDim2.new(0.3, 0, 0.1, 0)
-
-	Frame.Size = UDim2.new(0, 397, 0, 395)
-
-	Frame_2.Parent = Frame
-
-	Frame_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-
-	Frame_2.BorderSizePixel = 0
-
-	Frame_2.Position = UDim2.new(0.0624024495, 0, 0.145615742, 0)
-
-	Frame_2.Size = UDim2.new(0, 347, 0, 298)
 
 x.Parent = Frame
 
@@ -57,6 +37,34 @@ x.MouseButton1Down:connect(function()
 game.Players.LocalPlayer.PlayerGui.ScreenGui:destroy()
 
 end)
+
+
+
+
+
+
+
+	Frame_2.Parent = Frame
+
+	Frame_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+
+	Frame_2.BorderSizePixel = 0
+
+	Frame_2.Position = UDim2.new(0.0624024495, 0, 0.145615742, 0)
+
+	Frame_2.Size = UDim2.new(0, 347, 0, 298)
+
+	theme.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+	theme.ResetOnSpawn = false
+
+	Frame.Parent = theme
+
+	Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+
+	Frame.Position = UDim2.new(0.2, 0, 4.0, 0)
+
+	Frame.Size = UDim2.new(0, 397, 0, 395)
 
 	UIListLayout.Parent = Frame_2
 
@@ -100,15 +108,21 @@ end)
 
 		script.Parent.Draggable = true
 
+		local script = Instance.new('LocalScript', Frame)
+		
+        Frame:TweenPosition(
+UDim2.new(0.265, 0,0.102,  0),
+  Enum.EasingDirection.Out,
+  Enum.EasingStyle.Quad,
+ 2,
+ false
+)
+
 	end
 
 	coroutine.wrap(MVMBOL_fake_script)()
 
-	
-
 	_G.Frame = {}
-
-	
 
 	function _G.Frame:Button(Name,Call)
 
