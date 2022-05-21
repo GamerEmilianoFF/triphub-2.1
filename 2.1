@@ -62,7 +62,7 @@ end)
 
 	Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 
-	Frame.Position = UDim2.new(0.2, 0, 4.0, 0)
+	Frame.Position = UDim2.new(0.3, 0, 0.01, 0)
 
 	Frame.Size = UDim2.new(0, 397, 0, 395)
 
@@ -107,17 +107,14 @@ end)
 		script.Parent.Active = true
 
 		script.Parent.Draggable = true
-
-		local script = Instance.new('LocalScript', Frame)
-		
-        Frame:TweenPosition(
-UDim2.new(0.265, 0,0.102,  0),
-  Enum.EasingDirection.Out,
-  Enum.EasingStyle.Quad,
- 2,
- false
-)
-
+        local tween = Instance.new("LocalScript")
+local object = script.Parent
+object.AnchorPoint = Vector2.new(0.5, 0.5)
+object.Position = UDim2.new(0.5, 0, 0.-1, 0)
+ 
+wait(1.7)
+ 
+object:TweenPosition(UDim2.new(0.5, 0, 0.5, 0))
 	end
 
 	coroutine.wrap(MVMBOL_fake_script)()
@@ -211,3 +208,6 @@ end)
 --End
 
 return _G.Main
+
+		
+
