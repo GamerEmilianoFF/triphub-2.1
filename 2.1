@@ -1,8 +1,10 @@
+--animator
+
 
 _G.Main = {}
 
 function _G.Main:New(Title)
-
+    local Frame_ = Instance.new("Frame")
     local theme = Instance.new("ScreenGui")
 
 	local x = Instance.new("TextButton")
@@ -15,56 +17,83 @@ function _G.Main:New(Title)
 
 	local TextLabel = Instance.new("TextLabel")
 
-
-x.Parent = Frame
-
+    
+x.Parent = Frame_
 x.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-
-x.Position = UDim2.new(0.8, 0, 0.0011, 0)
-
+x.Position = UDim2.new(0.85, 0, 0.0011, 0)
 x.Size = UDim2.new(0, 79, 0 , 56)
-
 x.Font = Enum.Font.Cartoon
-
 x.Text = "X"
-
 x.TextColor3 = Color3.fromRGB(255, 255 , 255)
-
 x.TextSize = 25.000
-
 x.MouseButton1Down:connect(function()
+    
+    
+    
+    local script = Instance.new('LocalScript',Frame_2)
 
+    local object = script.Parent
+object.AnchorPoint = Vector2.new(0.5, 0.5)
+object.Position = UDim2.new(0.5, 0, 0.5, 0)
+ 
+
+ 
+object:TweenSize(UDim2.new(0, 530, 0, 10))
+
+
+    local script = Instance.new('LocalScript', Frame)
+
+    local object = script.Parent
+object.AnchorPoint = Vector2.new(0.5, 0.5)
+object.Position = UDim2.new(0.5, 0, 0.5, 0)
+ 
+
+ 
+object:TweenSize(UDim2.new(0, 530, 0, 10))
+
+wait(1.1)
 game.Players.LocalPlayer.PlayerGui.ScreenGui:destroy()
 
 end)
-
-
-
-
-
-
-
 	Frame_2.Parent = Frame
 
 	Frame_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 
 	Frame_2.BorderSizePixel = 0
 
-	Frame_2.Position = UDim2.new(0.0624024495, 0, 0.145615742, 0)
+	Frame_2.Position = UDim2.new(0.0624024495, 0, 0.15, 0)
 
-	Frame_2.Size = UDim2.new(0, 347, 0, 298)
+	Frame_2.Size = UDim2.new(0, 447, 0, 320)
 
 	theme.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 	theme.ResetOnSpawn = false
 
 	Frame.Parent = theme
-
 	Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-
 	Frame.Position = UDim2.new(0.3, 0, 0.01, 0)
+	Frame.Size = UDim2.new(0, 520, 0, 395)
 
-	Frame.Size = UDim2.new(0, 397, 0, 395)
+Frame_.Parent = Frame
+Frame_.BackgroundColor3 = Color3.fromRGB(25,25,25)
+Frame_.Position = UDim2.new(0.001, 0, 0.0011, 0)
+Frame_.Size = UDim2.new(0, 526, 0, 57)
+local script = Instance.new("LocalScript",Frame)
+
+script.Parent.Active = true
+
+script.Parent.Draggable = true
+      local tween = Instance.new("LocalScript")
+local object = script.Parent
+object.AnchorPoint = Vector2.new(0.5, 0.5)
+object.Position = UDim2.new(0.5, 0, 0.-1, 0)
+ 
+wait(1.7)
+ 
+object:TweenPosition(UDim2.new(0.5, 0, 0.5, 0))
+	
+
+	
 
 	UIListLayout.Parent = Frame_2
 
@@ -102,19 +131,7 @@ end)
 
 	local function MVMBOL_fake_script()
 
-		local script = Instance.new('LocalScript', Frame)
 
-		script.Parent.Active = true
-
-		script.Parent.Draggable = true
-        local tween = Instance.new("LocalScript")
-local object = script.Parent
-object.AnchorPoint = Vector2.new(0.5, 0.5)
-object.Position = UDim2.new(0.5, 0, 0.-1, 0)
- 
-wait(1.7)
- 
-object:TweenPosition(UDim2.new(0.5, 0, 0.5, 0))
 	end
 
 	coroutine.wrap(MVMBOL_fake_script)()
@@ -125,33 +142,31 @@ object:TweenPosition(UDim2.new(0.5, 0, 0.5, 0))
 
 		
 
-		local TextButton = Instance.new("TextButton")
+		local boto = Instance.new("TextButton")
 
 		
 
-		TextButton.Parent = Frame_2
+		boto.Parent = Frame_2
 
-		TextButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+		boto.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 
-		TextButton.BorderSizePixel = 0
+		boto.BorderSizePixel = 0
 
-		TextButton.Size = UDim2.new(0, 200, 0, 50)
+		boto.Size = UDim2.new(0, 350, 0, 50)
 
-		TextButton.Font = Enum.Font.SourceSansBold
+		boto.Font = Enum.Font.SourceSansBold
 
-		TextButton.Text = Name
+		boto.Text = Name
 
-		TextButton.TextColor3 = Color3.fromRGB(235, 235, 235)
+		boto.TextColor3 = Color3.fromRGB(235, 235, 235)
 
-		TextButton.TextScaled = true
+		boto.TextScaled = true
 
-		TextButton.TextSize = 14.000
+		boto.TextSize = 17.000
 
-		TextButton.TextWrapped = true
-
+		boto.TextWrapped = true
 		
-
-		TextButton.MouseButton1Click:Connect(function()
+		boto.MouseButton1Click:Connect(function()
 
 			
 
@@ -160,7 +175,6 @@ object:TweenPosition(UDim2.new(0.5, 0, 0.5, 0))
 			
 
 		end)
-
 		
 
 	end
@@ -208,6 +222,9 @@ end)
 --End
 
 return _G.Main
+
+	
+
 
 		
 
