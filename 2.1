@@ -119,6 +119,43 @@ corre1.Visible = true
 wait(1)
 	game.Players.LocalPlayer.PlayerGui.selectt:Destroy()
 	loadstring(game:HttpGet("https://pastebin.com/raw/ptnQ3Mcp",true))()
+local ScreenGui = Instance.new("ScreenGui")
+
+local close = Instance.new("TextButton")
+
+local open = Instance.new("TextButton")
+
+ScreenGui.Parent = game.CoreGui
+
+close.Name = "close"
+close.Parent = game.CoreGui.triphub.ContainerFrame
+close.BackgroundColor3 = Color3.new(1, 0, 0)
+close.Position = UDim2.new(0.95, 0, 0, 0)
+close.Size = UDim2.new(0, 40, 0, 31)
+close.Font = Enum.Font.GothamBlack
+close.Text = "X"
+close.TextColor3 = Color3.new(0, 0, 0)
+close.TextScaled = true
+close.TextSize = 14
+close.TextWrapped = true
+close.MouseButton1Down:connect(function()
+game.CoreGui.triphub.ContainerFrame.Visible = false
+open.Visible = true
+end)
+open.Name = "open"
+open.Parent = ScreenGui
+open.BackgroundColor3 = Color3.new(1, 0, 0)
+open.Size = UDim2.new(0, 100, 0, 28)
+open.Font = Enum.Font.GothamBold
+open.Text = "OPEN"
+open.TextColor3 = Color3.new(0, 0, 0)
+open.TextSize = 18
+open.TextWrapped = true
+open.MouseButton1Down:connect(function()
+close.Visible = true
+game.CoreGui.triphub.ContainerFrame.Visible = true
+end)
+
 end)
 
 UICorner_3.CornerRadius = UDim.new(0, 12)
