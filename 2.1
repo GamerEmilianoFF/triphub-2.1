@@ -1,223 +1,679 @@
---animator
 
+local UILibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/twink"))()
 
-_G.Main = {}
+local MainUI = UILibrary.Load("trip hub")
+local FirstPage = MainUI.AddPage("Home")
 
-function _G.Main:New(Title)
-    local Frame_ = Instance.new("Frame")
-    local theme = Instance.new("ScreenGui")
-
-	local x = Instance.new("TextButton")
-
-	local Frame = Instance.new("Frame")
-
-	local Frame_2 = Instance.new("Frame")
-
-	local UIListLayout = Instance.new("UIListLayout")
-
-	local TextLabel = Instance.new("TextLabel")
-
-    
-x.Parent = Frame_
-x.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-x.Position = UDim2.new(0.85, 0, 0.0011, 0)
-x.Size = UDim2.new(0, 79, 0 , 56)
-x.Font = Enum.Font.Cartoon
-x.Text = "X"
-x.TextColor3 = Color3.fromRGB(255, 255 , 255)
-x.TextSize = 25.000
-x.MouseButton1Down:connect(function()
-    
-    
-    
-    local script = Instance.new('LocalScript',Frame_2)
-
-    local object = script.Parent
-object.AnchorPoint = Vector2.new(0.5, 0.5)
-object.Position = UDim2.new(0.5, 0, 0.5, 0)
+local FirstLabel = FirstPage.AddLabel("speed bypass")
+local FirstButton = FirstPage.AddButton("speed (c)", function()
+plr = game:GetService('Players').LocalPlayer
  
-
+down = true
  
-object:TweenSize(UDim2.new(0, 530, 0, 10))
-
-
-    local script = Instance.new('LocalScript', Frame)
-
-    local object = script.Parent
-object.AnchorPoint = Vector2.new(0.5, 0.5)
-object.Position = UDim2.new(0.5, 0, 0.5, 0)
+function onButton1Down(mouse)
  
-
+    down = true
  
-object:TweenSize(UDim2.new(0, 530, 0, 10))
-
-wait(1.1)
-game.Players.LocalPlayer.PlayerGui.ScreenGui:destroy()
-
+    while down do
+ 
+        if not down then break end
+ 
+        local char = plr.Character
+ 
+        char.HumanoidRootPart.Velocity = char.HumanoidRootPart.CFrame.lookVector * 230
+ 
+        wait()
+ 
+    end
+ 
+end
+ 
+function onButton1Up(mouse)
+ 
+    down = false
+ 
+end
+ 
+function onSelected(mouse)
+ 
+    mouse.KeyDown:connect(function(c) if c:lower()=="c"then onButton1Down(mouse)end end)
+ 
+    mouse.KeyUp:connect(function(c) if c:lower()=="c"then onButton1Up(mouse)end end)
+ 
+end
+ 
+onSelected(game.Players.LocalPlayer:GetMouse())
 end)
-	Frame_2.Parent = Frame
 
-	Frame_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+local FirstButton = FirstPage.AddButton("speed button", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/madebyemiliano/main/Speed%20bypass",true))()
+end)
 
-	Frame_2.BorderSizePixel = 0
+local FirstButton = FirstPage.AddButton("speed toggle", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/toggles_speed/main/Speed",true))()
+end)
+local FirstLabel = FirstPage.AddLabel("chat spy")
+local FirstButton = FirstPage.AddButton("chat spy v1", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/TBRu2TW5'))()
+end)
 
-	Frame_2.Position = UDim2.new(0.0624024495, 0, 0.15, 0)
+local FirstButton = FirstPage.AddButton("chat spy v2 ", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/7MYwu6cD'))()
+end)
+local FirstLabel = FirstPage.AddLabel("esp")
+local FirstButton = FirstPage.AddButton("esp box", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/zKjj0TQD", true))()
+end)
+local FirstButton = FirstPage.AddButton("hit box", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/P90LrpCG'))()
+end)
+local FirstLabel = FirstPage.AddLabel("scripts")
+local FirstButton = FirstPage.AddButton("no fog", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+end)
 
-	Frame_2.Size = UDim2.new(0, 447, 0, 320)
+local FirstButton = FirstPage.AddButton("view fps", function()
+    repeat wait() until game:IsLoaded() wait(2)
+local ScreenGui = Instance.new("ScreenGui")
+local Fps = Instance.new("TextLabel")
+local Ping = Instance.new("TextLabel")
 
-	theme.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+--Properties:
 
-	theme.ResetOnSpawn = false
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-	Frame.Parent = theme
-	Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	Frame.Position = UDim2.new(0.3, 0, 0.01, 0)
-	Frame.Size = UDim2.new(0, 520, 0, 395)
+Fps.Name = "Fps"
+Fps.Parent = ScreenGui
+Fps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Fps.BackgroundTransparency = 1.000
+Fps.Position = UDim2.new(0.786138654, 0, 0, 0)
+Fps.Size = UDim2.new(0, 125, 0, 25)
+Fps.Font = Enum.Font.SourceSans
+Fps.TextColor3 = Color3.fromRGB(255, 255, 255)
+Fps.TextScaled = true
+Fps.TextSize = 14.000
+Fps.TextWrapped = true
 
-Frame_.Parent = Frame
-Frame_.BackgroundColor3 = Color3.fromRGB(25,25,25)
-Frame_.Position = UDim2.new(0.001, 0, 0.0011, 0)
-Frame_.Size = UDim2.new(0, 526, 0, 57)
-local script = Instance.new("LocalScript",Frame)
+Ping.Name = "Ping"
+Ping.Parent = ScreenGui
+Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Ping.BackgroundTransparency = 1.000
+Ping.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Ping.Position = UDim2.new(0.700000048, 0, 0, 0)
+Ping.Size = UDim2.new(0, 125, 0, 25)
+Ping.Font = Enum.Font.SourceSans
+Ping.TextColor3 = Color3.fromRGB(253, 253, 253)
+Ping.TextScaled = true
+Ping.TextSize = 14.000
+Ping.TextWrapped = true
 
-script.Parent.Active = true
+-- Scripts:
 
-script.Parent.Draggable = true
-      local tween = Instance.new("LocalScript")
-local object = script.Parent
-object.AnchorPoint = Vector2.new(0.5, 0.5)
-object.Position = UDim2.new(0.5, 0, 0.-1, 0)
- 
-wait(1.7)
- 
-object:TweenPosition(UDim2.new(0.5, 0, 0.5, 0))
-	
-
-	
-
-	UIListLayout.Parent = Frame_2
-
-	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-
-	UIListLayout.Padding = UDim.new(0, 20)
-
-	TextLabel.Parent = Frame
-
-	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-
-	TextLabel.BackgroundTransparency = 1.000
-
-	TextLabel.LayoutOrder = 5
-
-	TextLabel.Position = UDim2.new(0.152442604, 0, 0.0205405708, 0)
-
-	TextLabel.Size = UDim2.new(0, 274, 0, 40)
-
-	TextLabel.ZIndex = 2
-
-	TextLabel.Font = Enum.Font.GothamBold
-
-	TextLabel.Text = Title
-
-	TextLabel.TextColor3 = Color3.fromRGB(232, 232, 232)
-
-	TextLabel.TextScaled = true
-
-	TextLabel.TextSize = 14.000
-
-	TextLabel.TextWrapped = true
-
-	local function MVMBOL_fake_script()
+local script = Instance.new('LocalScript', Fps)
+local RunService = game:GetService("RunService")
+RunService.RenderStepped:Connect(function(frame) -- This will fire every time a frame is rendered
+script.Parent.Text = ("FPS: "..math.round(1/frame)) 
+end)
 
 
-	end
+local script = Instance.new('LocalScript', Ping)
+local RunService = game:GetService("RunService")
+RunService.RenderStepped:Connect(function(ping) 
+script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping
+end)
+end)
 
-	coroutine.wrap(MVMBOL_fake_script)()
+local FirstButton = FirstPage.AddButton("trash talk button", function()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/GamerEmilianoFF/main/trash%20gui",true))()
+end)
 
-	_G.Frame = {}
+local FirstButton = FirstPage.AddButton("headless", function()
+game.Players.LocalPlayer.Character.Head.Transparency = 1
 
-	function _G.Frame:Button(Name,Call)
+for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
 
-		
+if (v:IsA("Decal")) then
 
-		local boto = Instance.new("TextButton")
-
-		
-
-		boto.Parent = Frame_2
-
-		boto.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-
-		boto.BorderSizePixel = 0
-
-		boto.Size = UDim2.new(0, 350, 0, 90)
-
-		boto.Font = Enum.Font.SourceSansBold
-
-		boto.Text = Name
-
-		boto.TextColor3 = Color3.fromRGB(235, 235, 235)
-
-		boto.TextScaled = true
-
-		boto.TextSize = 17.000
-
-		boto.TextWrapped = true
-		
-		boto.MouseButton1Click:Connect(function()
-
-			
-
-			pcall(Call)
-
-			
-
-		end)
-		
-
-	end
-
-	
-
-	return _G.Frame
-
-	
+v:Destroy()
 
 end
 
---Script Here
+end
+end)
 
-local Frame1 = _G.Main:New("theme for trip hub")
+local FirstButton = FirstPage.AddButton("korblox", function()
 
-Frame1:Button("Serpent",function()
+local ply = game.Players.LocalPlayer
 
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/triphub2/main/Serpent",true))()
+        local chr = ply.Character
+
+        chr.RightLowerLeg.MeshId = "902942093"
+
+        chr.RightLowerLeg.Transparency = "1"
+
+        chr.RightUpperLeg.MeshId = "http://www.roblox.com/asset/?id=902942096"
+
+        chr.RightUpperLeg.TextureID = "http://roblox.com/asset/?id=902843398"
+
+        chr.RightFoot.MeshId = "902942089"
+
+        chr.RightFoot.Transparency = "1"
+end)
+
+
+local FirstLabel = FirstPage.AddLabel("jumps")
+local FirstButton = FirstPage.AddButton("inf jumps", function()
+local InfiniteJumpEnabled = true
+ 
+game:GetService("UserInputService").JumpRequest:connect(function()
+ 
+    if InfiniteJumpEnabled then
+ 
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+ 
+    end
+ 
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/infinite_jumps/main/Jumps",true))()
+end)
+
+local FirstButton = FirstPage.AddButton("jumpower", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/infinite_jumps/main/Jumps",true))()
+end)
+
+local FirstButton = FirstPage.AddButton("kick me gui", function()
+ local MainToggle = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local ToggleBtn = Instance.new("ImageButton")
+local x = Instance.new("TextButton")
+MainToggle.Name = "MainToggle"
+MainToggle.Parent = game.CoreGui
+MainToggle.ResetOnSpawn = false
+
+Frame.Parent = MainToggle
+Frame.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+Frame.BackgroundTransparency = 0.200
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.89, 0, 0.01, 0)
+Frame.Size = UDim2.new(0, 100, 0, 100)
+
+x.Parent = Frame
+x.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+x.Position = UDim2.new(0.01, 0, 0.0011, 0)
+x.Size = UDim2.new(0, 97, 0 , 100)
+x.Font = Enum.Font.Cartoon
+x.Text = "exit"
+x.TextColor3 = Color3.fromRGB(255, 255 , 255)
+x.TextSize = 25.000
+x.MouseButton1Down:connect(function()
+game.Players.LocalPlayer:Kick("exit server!")
+end)
+end)
+local FirstLabel = FirstPage.AddLabel("server finder")
+local FirstButton = FirstPage.AddButton("server finder hub", function()
+loadstring(game:HttpGet("https://www.scriptblox.com/raw/Server-Browser_80", true))();
+end)
+local FirstButton = FirstPage.AddButton("join server auto", function()
+local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+ 
+local _place = game.PlaceId
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+function ListServers(cursor)
+   local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+   return Http:JSONDecode(Raw)
+end
+ 
+local Server, Next; repeat
+   local Servers = ListServers(Next)
+   Server = Servers.data[1]
+   Next = Servers.nextPageCursor
+until Server
+ 
+TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+end)
+
+local FirstPage = MainUI.AddPage("anti lag")
+
+local FirstButton = FirstPage.AddButton("anti lag v1", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/anti-lag-v2-fps/main/Dhm",true))()
+end)
+local FirstButton = FirstPage.AddButton("anti lag v2", function()
+ workspace:FindFirstChildOfClass('Terrain').WaterWaveSize = 0
+
+	workspace:FindFirstChildOfClass('Terrain').WaterWaveSpeed = 0
+
+	workspace:FindFirstChildOfClass('Terrain').WaterReflectance = 0
+
+	workspace:FindFirstChildOfClass('Terrain').WaterTransparency = 0
+
+	game:GetService("Lighting").GlobalShadows = false
+
+	game:GetService("Lighting").FogEnd = 9e9
+
+	settings().Rendering.QualityLevel = 1
+
+	for i,v in pairs(game:GetDescendants()) do
+
+		if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+
+			v.Material = "Plastic"
+
+			v.Reflectance = 0
+
+		elseif v:IsA("Decal") then
+
+			v.Transparency = 1
+
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+
+			v.Lifetime = NumberRange.new(0)
+
+		elseif v:IsA("Explosion") then
+
+			v.BlastPressure = 1
+
+			v.BlastRadius = 1
+
+		end
+
+	end
+
+	for i,v in pairs(game:GetService("Lighting"):GetDescendants()) do
+
+		if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+
+			v.Enabled = false
+
+		end
+
+	end
+
+	workspace.DescendantAdded:Connect(function(child)
+
+		coroutine.wrap(function()
+
+			if child:IsA('ForceField') then
+
+				game:GetService('RunService').Heartbeat:Wait()
+
+				child:Destroy()
+
+			elseif child:IsA('Sparkles') then
+
+				game:GetService('RunService').Heartbeat:Wait()
+
+				child:Destroy()
+
+			elseif child:IsA('Smoke') or child:IsA('Fire') then
+
+				game:GetService('RunService').Heartbeat:Wait()
+
+				child:Destroy()
+
+			end
+
+		end)()
+
+	end)
+
+end)
+local FirstButton = FirstPage.AddButton("fps booster", function()
+print("lol")
+end)
+
+local FirstPage = MainUI.AddPage("rtx")
+
+local FirstButton = FirstPage.AddButton("rtx day", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/DRDAAq1Y",true))()
+end)
+local FirstButton = FirstPage.AddButton("rtx night", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/MSZPFVfE",true))()
+end)
+local FirstButton = FirstPage.AddButton("rtx sumer", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/xZj8Xut9",true))()
+end)
+
+
+local FirstPage = MainUI.AddPage("fov")
+
+local FirstButton = FirstPage.AddButton("fov 70", function()
+ local FOV = 70
+
+game.Workspace.Camera.FieldOfView = FOV
+end)
+local FirstButton = FirstPage.AddButton("fov 80", function()
+ local FOV = 80
+
+game.Workspace.Camera.FieldOfView = FOV
+end)
+local FirstButton = FirstPage.AddButton("fov 90", function()
+ local FOV = 90
+
+game.Workspace.Camera.FieldOfView = FOV
+end)
+local FirstButton = FirstPage.AddButton("fov 100", function()
+ local FOV = 100
+
+game.Workspace.Camera.FieldOfView = FOV
+end)
+local FirstButton = FirstPage.AddButton("fov 110", function()
+ local FOV = 110
+
+game.Workspace.Camera.FieldOfView = FOV
+end)
+local FirstButton = FirstPage.AddButton("fov 120", function()
+ local FOV = 120
+
+game.Workspace.Camera.FieldOfView = FOV
+end)
+
+
+local FirstSlider = FirstPage.AddSlider("Hello", {Min = 0, Max = 130, Def = 70}, function(Value)
+local FOV = (Value)
+
+game.Workspace.Camera.FieldOfView = FOV
 
 end)
 
-Frame1:Button("midnight",function()
 
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/triphub5/main/Midnight",true))()
+local FirstPage = MainUI.AddPage("animations")
 
+local FirstButton = FirstPage.AddButton("astronaut", function()
+	wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=891621366"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=891633237"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=891667138"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=891636393"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=891627522"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=891609353"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=891617961"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
 end)
 
-Frame1:Button("BloodTheme",function()
+local FirstButton = FirstPage.AddButton("buddly", function()
+wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=910004836"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=910009958"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=910034870"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=910025107"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=910016857"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=910001910"
+Animate.swimidle.SwimIdle.AnimationId = "http://www.roblox.com/asset/?id=910030921"
+Animate.swim.Swim.AnimationId = "http://www.roblox.com/asset/?id=910028158"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
 
-    
+local FirstButton = FirstPage.AddButton("cartoony", function()
+wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+ Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=742637544"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=742638445"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=742640026"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=742638842"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=742637942"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=742636889"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=742637151"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerEmilianoFF/triphub1/main/BloodTheme",true))()
+local FirstButton = FirstPage.AddButton("elder", function()
+wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=845400520"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=845403856"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=845386501"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=845398858"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=845392038"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=845396048"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
 
+local FirstButton = FirstPage.AddButton("knight", function()
+wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616010382"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
+
+local FirstButton = FirstPage.AddButton("mage", function()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=707742142"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=707855907"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=707897309"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=707861613"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=707853694"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=707826056"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=707829716"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
+
+local FirstButton = FirstPage.AddButton("ninja", function()
+wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=656117400"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=656118341"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=656121766"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=656118852"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=656117878"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=656114359"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=656115606"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
+
+local FirstButton = FirstPage.AddButton("pirate", function()
+wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=750781874"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=750782770"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=750785693"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=750783738"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=750782230"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=750779899"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=750780242"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
+
+local FirstButton = FirstPage.AddButton("robot", function()
+	wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616088211"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616089559"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616095330"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616091570"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616090535"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616086039"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616087089"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
+
+local FirstButton = FirstPage.AddButton("stylish", function()
+wait()
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616136790"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616138447"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616146177"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616140816"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616139451"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616133594"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616134815"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
 end)
 
 
+local FirstPage = MainUI.AddPage("cursor custom")
 
---End
+local FirstButton = FirstPage.AddButton("cursor red circle", function()
+local IAPortable = Instance.new("ScreenGui")
+local Cursor = Instance.new("ImageLabel")
+local Hitmarker = Instance.new("ImageLabel")
+IAPortable.Name = "IAPortable"
+IAPortable.Parent = game:GetService('CoreGui')
+IAPortable.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Cursor.Name = "Cursor"
+Cursor.Parent = IAPortable
+Cursor.AnchorPoint = Vector2.new(0.5, 0.5)
+Cursor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cursor.BackgroundTransparency = 20.000
+Cursor.Size = UDim2.new(0, 150, 0, 350)
+Cursor.Image = "rbxassetid://973823018"
+Cursor.ScaleType = Enum.ScaleType.Fit
+Cursor.Position = UDim2.new(0.5, 0, 0.46, 0)
+end)
 
-return _G.Main
+local FirstButton = FirstPage.AddButton("cursor white +", function()
+local IAPortable = Instance.new("ScreenGui")
+local Cursor = Instance.new("ImageLabel")
+local Hitmarker = Instance.new("ImageLabel")
+IAPortable.Name = "IAPortable"
+IAPortable.Parent = game:GetService('CoreGui')
+IAPortable.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Cursor.Name = "Cursor"
+Cursor.Parent = IAPortable
+Cursor.AnchorPoint = Vector2.new(0.5, 0.5)
+Cursor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cursor.BackgroundTransparency = 20.000
+Cursor.Size = UDim2.new(0, 70, 0, 25)
+Cursor.Image = "rbxassetid://3874001308"
+Cursor.ScaleType = Enum.ScaleType.Fit
+Cursor.Position = UDim2.new(0.5, 0, 0.5, 0)
+end)
 
-	
+local FirstButton = FirstPage.AddButton("cursor white", function()
+local IAPortable = Instance.new("ScreenGui")
+local Cursor = Instance.new("ImageLabel")
+local Hitmarker = Instance.new("ImageLabel")
+IAPortable.Name = "IAPortable"
+IAPortable.Parent = game:GetService('CoreGui')
+IAPortable.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Cursor.Name = "Cursor"
+Cursor.Parent = IAPortable
+Cursor.AnchorPoint = Vector2.new(0.5, 0.5)
+Cursor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cursor.BackgroundTransparency = 1.000
+Cursor.Size = UDim2.new(0, 400, 0, 300)
+Cursor.Image = "rbxassetid://3355815697"
+Cursor.ScaleType = Enum.ScaleType.Fit
+Cursor.Position = UDim2.new(0.5, 0, 0.5, 0)
+end)
 
+local FirstButton = FirstPage.AddButton("cursor black", function()
+local gui = Instance.new("ScreenGui")
+local black = Instance.new("ImageLabel")
+local red = Instance.new("ImageLabel")
+local orange = Instance.new("ImageLabel")
+local green = Instance.new("ImageLabel")
+local rare = Instance.new("ImageLabel")
 
-		
+gui.Name = "gui"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+black.Name = "black"
+black.Parent = gui
+black.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+black.BackgroundTransparency = 33.000
+black.Position = UDim2.new(0.5, 0, 0.5, 0)
+black.Size = UDim2.new(0, 100, 0, 100)
+black.Image = "http://www.roblox.com/asset/?id=4758083111"
+end)
+
+local FirstButton = FirstPage.AddButton("cursor red small", function()
+local gui = Instance.new("ScreenGui")
+local black = Instance.new("ImageLabel")
+local red = Instance.new("ImageLabel")
+local orange = Instance.new("ImageLabel")
+local green = Instance.new("ImageLabel")
+local rare = Instance.new("ImageLabel")
+ 
+ 
+ 
+gui.Name = "gui"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+red.Name = "red"
+red.Parent = gui
+red.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+red.BackgroundTransparency = 33.000
+red.Position = UDim2.new(0.5, 0, 0.5, 0)
+red.Size = UDim2.new(0, 100, 0, 100)
+red.Image = "http://www.roblox.com/asset/?id=2479145114"
+end)
+local FirstButton = FirstPage.AddButton("cursor orange", function()
+local gui = Instance.new("ScreenGui")
+local black = Instance.new("ImageLabel")
+local red = Instance.new("ImageLabel")
+local orange = Instance.new("ImageLabel")
+local green = Instance.new("ImageLabel")
+local rare = Instance.new("ImageLabel")
+ 
+ 
+ 
+gui.Name = "gui"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+orange.Name = "orange"
+orange.Parent = gui
+orange.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+orange.BackgroundTransparency = 33.000
+orange.Position = UDim2.new(0.5, 0, 0.5, 0)
+orange.Size = UDim2.new(0, 57, 0, 51)
+orange.Image = "http://www.roblox.com/asset/?id=6918342249"
+end)
+
+local FirstButton = FirstPage.AddButton("cursor green", function()
+
+local gui = Instance.new("ScreenGui")
+local black = Instance.new("ImageLabel")
+local red = Instance.new("ImageLabel")
+local orange = Instance.new("ImageLabel")
+local green = Instance.new("ImageLabel")
+local rare = Instance.new("ImageLabel")
+ 
+ 
+ 
+gui.Name = "gui"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+green.Name = "green"
+green.Parent = gui
+green.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+green.BackgroundTransparency = 33.000
+green.Position = UDim2.new(0.5, 0, 0.5, 0)
+green.Size = UDim2.new(0, 314, 0, 243)
+green.Image = "http://www.roblox.com/asset/?id=5998123220"
+end)
+
+local FirstButton = FirstPage.AddButton("destroy all cursorr", function()
+game.CoreGui.IAPortable:Destroy()
+game.CoreGui.IAPortable:Destroy()
+game.CoreGui.IAPortable:Destroy()
+game.CoreGui.IAPortable:Destroy()
+game.CoreGui.IAPortable:Destroy()
+wait (1)
+game.Players.LocalPlayer.PlayerGui.gui:Destroy()
+game.Players.LocalPlayer.PlayerGui.gui:Destroy()
+game.Players.LocalPlayer.PlayerGui.gui:Destroy()
+game.Players.LocalPlayer.PlayerGui.gui:Destroy()
+game.Players.LocalPlayer.PlayerGui.gui:Destroy()
+end)
+local FirstPage = MainUI.AddPage("credits")
+local FirstLabel = FirstPage.AddLabel("credits")
+local FirstButton = FirstPage.AddButton("click me", function()
+setclipboard("discord: https://discord.gg/79fKXVuJfr  my user roblox: GamerEmilianoFF")
+end)
